@@ -1,0 +1,35 @@
+body{
+   
+    
+}
+.container{
+    
+display: flex;
+justify-content: center;
+flex-direction: column;
+
+
+}
+
+#from,#to{
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    font-size: 25px;
+    font-family: 'BioRhyme', serif;
+    padding: 0px 10px;
+    width: 35px;
+}
+.img,#search,#translated{
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  font-size: 30px;
+  font-family: 'BioRhyme', serif;
+  padding: 0px 10px;
+  width: 75%;
+  height: 200px;
+
+
+}
+
+
+  
