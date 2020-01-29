@@ -1,16 +1,11 @@
 const inp = document.getElementById("search");
 const transResult = document.getElementById('translated')
-let textLength = searchVal.length;
-let mode = false;
-inp.addEventListener("input", function(){
-    if(!mode){translate()};
-  });
+const myHandler =function(){ if(inp.value.length===0){transResult.value=''}else{translate();};}
+const dHandler = debounced(200, myHandler);
+inp.addEventListener("input",dHandler);
 
 function translate() {
-    mode=true;
     let searchVal = inp.value
-   
-    if(textLength === searchVal.length){
     postRequest({ searchVal }, '/search', (error, response) => {
         if (error) {
             console.log(error, 'No Error');
@@ -25,12 +20,7 @@ function translate() {
 
     })
 }
-else{
-    transResult.value = '...'
-    textLength = searchVal.length;
-    setTimeout(translate, 1000);
-}
-}
+
 
 const postRequest = (body, url, cb) => {
 
@@ -43,3 +33,16 @@ const postRequest = (body, url, cb) => {
             cb(error)
         })
 };
+
+function debounced(delay, fn) {
+    let timerId;
+    return function (...args) {
+      if (timerId) {
+        clearTimeout(timerId);
+      }
+      timerId = setTimeout(() => {
+        fn(...args);
+        timerId = null;
+      }, delay);
+    }
+  }
