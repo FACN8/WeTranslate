@@ -10,23 +10,33 @@
 </head>
 
 <body>
+   
+    
 <div class='container'>
+    <div class="img">
+        <img src="https://www.wetranslateontime.com/images/icons/logo-1.webp" alt="">
+    </div>
      <div>
-        <input id='from' type="text">
+        <input id='from' type="text" value="en">
      </div>
-     <div>
         <div>
             <form autocomplete="off">
-                <input id='search' type="text">
+                <input id='search' type="text" placeholder="enter text to translate" >
             </form>
              </div>
              <div>
-                <input id='to' type="text">
+                <input id='to' type="text" value="ar">
              </div>
         <div>
-           <h2 id='translated'></h2> 
+            <form  autocomplete="off">
+                <input id='translated' type="text">
+            </form>
+            <div>
+            </div>
         </div>
+        
     </div>
+    
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type='text/javascript' src='public/index.js'></script>
 </body>
