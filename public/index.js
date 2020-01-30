@@ -2,6 +2,7 @@ const inp = document.getElementById("search");
 const transResult = document.getElementById("translated");
 const selectFrom =document.getElementById("from");
 const selectTo =document.getElementById("to");
+
 const myHandler = function() {
   if (inp.value.length === 0) {
     transResult.value = "";
@@ -29,6 +30,13 @@ function translate() {
     }
   });
 }
+
+function speakSearch() {
+    speechSynthesis.speak(new SpeechSynthesisUtterance(inp.value));
+  }
+  function speakTranslated() {
+    speechSynthesis.speak(new SpeechSynthesisUtterance(transResult.value));
+  }
 
 const postRequest = (body, url, cb) => {
   axios

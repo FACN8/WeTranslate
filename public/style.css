@@ -59,8 +59,7 @@
      max-width: 100vw;
  }
 
- @keyframes stroke-offset {
-     100% {
-         stroke-dashoffset: -35%;
-     }
- }
+.speak{
+    font-size:45px;
+    background-color: transparent;
+}

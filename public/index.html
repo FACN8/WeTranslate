@@ -15,7 +15,7 @@
     <div class='main-container'>
         <div class='img1'>
             <img
-                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJOQKpM_YCG6_EZ1zgXkNd-gT-q2_azMqHWvtt4xeJ_m5kNlhlNQ&s '>
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJOQKpM_YCG6_EZ1zgXkNd-gT-q2_azMqHWvtt4xeJ_m5kNlhlNQ&s ' alt='img 2'>
         </div>
 
         <div class='container'>
@@ -30,6 +30,7 @@
                     <option value='hi'>Hindi</option>
                     <option value='ru'>Russian</option>
                 </select>
+                <button class="speak" onclick="speakSearch();" >&#128483;</button>
             </div>
             <form class='translate-box' autocomplete="off">
                 <input id='search' type="text" placeholder="enter to translate">
@@ -48,19 +49,19 @@
                     <option value='hi'>Hindi</option>
                     <option value='ru'>Russian</option>
                 </select>
+                <button class="speak" onclick="speakTranslated();" >&#128483;</button>
             </div>
             <form class='translate-box' autocomplete="off">
                 <input id='translated' type="text" readonly>
             </form>
-
+          
         </div>
 
         <div class='img2'>
-            <img src="https://jeffreyhill.typepad.com/.a/6a00d8341d417153ef01bb0991cc29970d-800wi" alt="">
+            <img src="https://jeffreyhill.typepad.com/.a/6a00d8341d417153ef01bb0991cc29970d-800wi" alt="img 2">
         </div>
     </div>
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=U0u243MU"></script>    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type='text/javascript' src='public/index.js'></script>
 </body>
 
