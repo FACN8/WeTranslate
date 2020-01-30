@@ -53,14 +53,12 @@ const handleSearch = (req, res) => {
         wordToTranslate += input;
     })
     req.on('end', (input) => {
-       
-        console.log(JSON.parse(wordToTranslate).searchVal)
-        
+       let data = JSON.parse(wordToTranslate)     
         languageTranslator.translate(
             {
-              text: JSON.parse(wordToTranslate).searchVal,
-              source: 'en',
-              target: 'ar'
+              text: data.searchVal,
+              source: data.fromLang,
+              target: data.toLang
             })
             .then(response => {
                 let translated =JSON.stringify(response.result, null, 2)
