@@ -10,33 +10,37 @@
 </head>
 
 <body>
-   
-    
-<div class='container'>
-    <div class="img">
-        <img src="https://www.wetranslateontime.com/images/icons/logo-1.webp" alt="">
-    </div>
-     <div>
-        <input id='from' type="text" value="en">
-     </div>
-        <div>
-            <form autocomplete="off">
-                <input id='search' type="text" placeholder="enter text to translate" >
+
+
+    <div class='main-container'>
+        <div id='img1'>
+            <img src="https://www.wetranslateontime.com/images/icons/logo-1.webp" alt="">
+        </div>
+
+        <div class='container'>
+            <div>
+                <input id='from' type="text" value="en">
+            </div>
+            <form class='translate-box' autocomplete="off">
+                <input id='search' type="text" placeholder="enter text to translate">
             </form>
-             </div>
-             <div>
+        </div>
+
+        <div class='container'>
+            <div>
                 <input id='to' type="text" value="ar">
-             </div>
-        <div>
-            <form  autocomplete="off">
+            </div>
+            <form class='translate-box' autocomplete="off">
                 <input id='translated' type="text">
             </form>
-            <div>
-            </div>
+            
         </div>
-        
+
+        <div id='img2'>
+            <img src="https://jeffreyhill.typepad.com/.a/6a00d8341d417153ef01bb0991cc29970d-800wi" alt="">
+        </div>
     </div>
-    
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type='text/javascript' src='public/index.js'></script>
 </body>
