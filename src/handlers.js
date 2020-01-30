@@ -1,15 +1,16 @@
 const fs = require("fs");
 const path = require("path");
-const axios = require('axios')
 require('dotenv').config()
+
+// API request for translator
 const LanguageTranslatorV3 = require('ibm-watson/language-translator/v3');
 const { IamAuthenticator } = require('ibm-watson/auth');
 
 const languageTranslator = new LanguageTranslatorV3({
-  authenticator: new IamAuthenticator({ apikey: process.env.apiKey}),
-  url:process.env.url,
-  version: '2018-05-01',
-});
+    authenticator: new IamAuthenticator({ apikey: process.env.apiKey }),
+    url: process.env.url,
+    version: '2018-05-01',
+}); // end 
 
 const handleHomeRoute = (request, response) => {
     const indexFilePath = path.join(__dirname, "..", "public", "index.html");
@@ -32,7 +33,7 @@ const handlePublic = (request, response) => {
         css: "text/css",
         js: "application/javascript",
         ico: "image/x-icon",
-        png:'image/png'
+        png: 'image/png'
     };
     const filePath = path.join(__dirname, "..", url);
     fs.readFile(filePath, (err, file) => {
@@ -48,33 +49,34 @@ const handlePublic = (request, response) => {
 };
 
 const handleSearch = (req, res) => {
-    console.log('inside search');
     let wordToTranslate = '';
     req.on('data', (input) => {
         wordToTranslate += input;
     })
     req.on('end', (input) => {
-       let data = JSON.parse(wordToTranslate)     
+        let data = JSON.parse(wordToTranslate)
         languageTranslator.translate(
             {
-              text: data.searchVal,
-              source: data.fromLang,
-              target: data.toLang
+                text: data.searchVal, // text to translate
+                source: data.fromLang, //lang to translate from
+                target: data.toLang // lang to translate to
             })
             .then(response => {
-                let translated =JSON.stringify(response.result, null, 2)
-              console.log(translated);
-              res.writeHead(200)
-              res.end(translated)
+                let translated = JSON.stringify(response.result, null, 2)
+                console.log(translated);
+                res.writeHead(200)
+                res.end(translated)
             })
             .catch(err => {
-              console.log('error: ', err);
+                res.writeHead(500)
+                res.end('server error')
             });
 
-       
+
     })
     req.on('error', (error) => {
-        console.error(error)
+        res.writeHead(500)
+        res.end('server error')
     })
 
 }

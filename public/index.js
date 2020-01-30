@@ -1,42 +1,42 @@
-const inp = document.getElementById("search");
+const search = document.getElementById("search");   
 const transResult = document.getElementById("translated");
-const selectFrom =document.getElementById("from");
-const selectTo =document.getElementById("to");
+const selectFrom = document.getElementById("from");
+const selectTo = document.getElementById("to");
 
-const myHandler = function() {
-  if (inp.value.length === 0) {
+const myHandler = function () {
+  if (search.value.length === 0) {
     transResult.value = "";
   } else {
     translate();
   }
 };
 const dHandler = debounced(200, myHandler);
-inp.addEventListener("input", dHandler);
+search.addEventListener("input", dHandler);  
 
 selectTo.addEventListener("change", myHandler);
 selectFrom.addEventListener("change", myHandler);
 function translate() {
-  let searchVal = inp.value;
+  let searchVal = search.value;
   let fromLang = selectFrom.value;
   let toLang = selectTo.value;
   postRequest({ searchVal, fromLang, toLang }, "/search", (error, response) => {
     if (error) {
-        transResult.value = "something went wrong please contact us";
+      transResult.value = "something went wrong please contact us";
     } else if (response.status === 200) {
       let translated = response.data.translations[0].translation;
       transResult.value = translated;
-        } else {
+    } else {
       transResult.value = "something went wrong please contact us";
     }
   });
 }
 
 function speakSearch() {
-    speechSynthesis.speak(new SpeechSynthesisUtterance(inp.value));
-  }
-  function speakTranslated() {
-    speechSynthesis.speak(new SpeechSynthesisUtterance(transResult.value));
-  }
+  speechSynthesis.speak(new SpeechSynthesisUtterance(search.value));
+}
+function speakTranslated() {
+  speechSynthesis.speak(new SpeechSynthesisUtterance(transResult.value));
+}
 
 const postRequest = (body, url, cb) => {
   axios
@@ -51,7 +51,7 @@ const postRequest = (body, url, cb) => {
 
 function debounced(delay, fn) {
   let timerId;
-  return function(...args) {
+  return function (...args) {
     if (timerId) {
       clearTimeout(timerId);
     }
