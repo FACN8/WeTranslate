@@ -4,7 +4,8 @@
   "description": "week 5 project By :aysam,fattmeeh,francis and lina",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/server.js",
+    "run": "nodemon src/server.js",
+    "start": "node src/server.js",
     "lint": "eslint .",
     "serverTest": "nodemon src/server.test.js | tap-spec"
   },

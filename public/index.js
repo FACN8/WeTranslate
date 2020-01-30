@@ -1,5 +1,6 @@
 const inp = document.getElementById("search");
 const transResult = document.getElementById('translated')
+
 const myHandler =function(){ if(inp.value.length===0){transResult.value=''}else{translate();};}
 const dHandler = debounced(200, myHandler);
 inp.addEventListener("input",dHandler);
@@ -20,7 +21,6 @@ function translate() {
 
     })
 }
-
 
 const postRequest = (body, url, cb) => {
 
