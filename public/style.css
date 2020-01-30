@@ -27,7 +27,8 @@
      font-size: 25px;
      font-family: 'BioRhyme', serif;
      padding: 0px 10px;
-     width: 50px;
+     width: 120px;
+     color: white;
  }
 
  #search, #translated {
@@ -38,37 +39,34 @@
      padding: 0px 10px;
      width: 80%;
      /* height: 20vh;*/
- } 
+ }
 
  .translate-box {
      text-align: center;
  }
 
  .container {
-     width: 75vw;
+     width: 90vw;
      border: solid 8px #8ED5FF;
      padding: 10px;
      margin: 10px auto;
      height: 20vh;
-  
  }
 
  #img1 {
-     background-color: #31B7FF;
+     /* background-color: #31B7FF; */
      max-width: 100vw;
      text-align: center;
-
  }
 
-  #img2 {
-    max-width: 100vw;
-    text-align: center;
+ #img2 {
+     max-width: 100vw;
+     text-align: center;
+ }
 
-} 
-img{
-    max-width: 100vw;
-
-}
+ img {
+     max-width: 100vw;
+ }
 
  @keyframes stroke-offset {
      100% {
