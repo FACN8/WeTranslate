@@ -23,7 +23,6 @@ function translate() {
     })
 }
 
-
 const postRequest = (body, url, cb) => {
 
     axios.post(url, body)
